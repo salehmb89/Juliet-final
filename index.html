@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonetic Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Phonetic Generator</h1>
+        <p>A tool to convert text into phonetic equivalents</p>
+    </header>
+<main>
+       <!-- Include the Bootstrap 5 card components -->
+<div class="card">
+    <div class="card-body">
+        <label for="textInput">Enter Text:</label>
+        <input type="text" id="textInput" placeholder="Type here...">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="clearAfterGenerate" checked>
+            <label class="form-check-label" for="clearAfterGenerate">Clear text after generating</label>
+        </div>
+        <button id="generateButton" class="btn btn-primary mt-3">Generate</button>
+    </div>
+</div>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h5 class="card-title">Phonetic Equivalents</h5>
+        <button id="clearListButton" class="btn btn-danger mb-3">Clear List</button>
+        <ul id="outputList"></ul>
+    </div>
+ </div>       
+</main>
+
+
+
+  <footer>
+    <p>Created by [Your Name]</p>
+    <p>Find the source code on <a href="[link to GitHub repository]">GitHub</a></p>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  </body>
+</html>
