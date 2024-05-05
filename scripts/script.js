@@ -1,3 +1,17 @@
+async function fetchAlphabet(alphabetType) {
+    try {
+        const response = await fetch('nc.json'); // Fetch the combined JSON file
+        if (!response.ok) {
+            throw new Error(`Failed to fetch nc.json: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data[alphabetType]; // Access the desired alphabet object based on the type
+    } catch (error) {
+        console.error('Error fetching alphabet:', error);
+        return {};
+    }
+}
+
 $(document).ready(function() {
     // Event listener for Generate button
     $('#generateButton').click(function() {
@@ -8,30 +22,22 @@ $(document).ready(function() {
     $('#clearListButton').click(function() {
         $('#outputList').empty();
     });
-
-    // Use Bootstrap 5 cards for your content
-    $('.card').fadeIn(1000);
 });
 
-// Use JSON for NATO phonetic alphabet
-const natoAlphabet = {
-    "A": "Alpha", "B": "Bravo", "C": "Charlie", "D": "Delta", "E": "Echo",
-    "F": "Foxtrot", "G": "Golf", "H": "Hotel", "I": "India", "J": "Juliett",
-    "K": "Kilo", "L": "Lima", "M": "Mike", "N": "November", "O": "Oscar",
-    "P": "Papa", "Q": "Quebec", "R": "Romeo", "S": "Sierra", "T": "Tango",
-    "U": "Uniform", "V": "Victor", "W": "Whiskey", "X": "X-ray", "Y": "Yankee", "Z": "Zulu"
-};
-
-function generatePhonetic() {
+async function generatePhonetic() {
     const inputText = $('#textInput').val().toUpperCase();
     const outputList = $('#outputList');
     const outputKebabCase = $('#outputKebabCase').prop('checked');
+    const useNatoAlphabet = $('#useNatoAlphabet').prop('checked');
+
+    const alphabetType = useNatoAlphabet ? 'nato' : 'civilian';
+    const phoneticAlphabet = await fetchAlphabet(alphabetType); // Fetch the desired alphabet object
 
     let phoneticList = '';
 
     for (let i = 0; i < inputText.length; i++) {
         const letter = inputText[i];
-        const phoneticEquivalent = natoAlphabet[letter] ? natoAlphabet[letter] : 'Not Available';
+        const phoneticEquivalent = phoneticAlphabet[letter] ? phoneticAlphabet[letter] : `Not Available (${letter})`;
         phoneticList += `<li>${outputKebabCase ? '-' : ''}${phoneticEquivalent}${outputKebabCase ? '-' : ''}</li>`;
     }
 

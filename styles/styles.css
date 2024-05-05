@@ -1,7 +1,14 @@
-body {
-    font-family: Arial, sans-serif;
+/* styles.css */
+
+/* Resetting default browser styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
 }
 
 header, footer {
@@ -11,32 +18,55 @@ header, footer {
 }
 
 .container {
-    max-width: 400px;
-    margin: 20px auto;
-    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+.card {
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"] {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-bottom: 10px;
+.card-body {
+    padding: 20px;
 }
 
-button {
-    padding: 10px 20px;
+.form-label {
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+}
+
+.btn-primary {
     background-color: #007bff;
     color: #fff;
     border: none;
+    padding: 10px 20px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.btn-primary:hover, .btn-danger:hover {
+    filter: brightness(90%);
 }
 
 ul {
@@ -46,4 +76,74 @@ ul {
 
 li {
     margin-bottom: 5px;
+}
+
+.bg-primary {
+    background-color: #007bff !important;
+}
+
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.text-lg-start {
+    text-align: left !important;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+
+.text-primary:hover {
+    color: #0056b3 !important;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+.text-danger:hover {
+    color: #a71d2a !important;
+}
+
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+.p-5 {
+    padding: 3rem !important;
+}
+
+.border-white {
+    border-color: #fff !important;
+}
+
+hr.border-white {
+    border-top-color: #fff !important;
+}
+
+/* Custom styling for the hamburger menu icon */
+.navbar-toggler-icon {
+    color: white; /* Change the color of the hamburger menu icon */
+    font-size: 24px; /* Adjust the size of the hamburger menu icon */
 }
